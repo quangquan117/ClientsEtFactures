@@ -71,7 +71,6 @@ public class Facture
 	
 	public Facture copie()
 	{
-		Facture new_facture = new Facture(this.nom, this.montant, this.reglee, this.Date);
-		return new_facture;
+		return nom.createFacture(montant, reglee);
 	}
 }
