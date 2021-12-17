@@ -49,7 +49,7 @@ public class Client
 	public Facture createFacture(int montant)
 	{
 		if (montant <= 0) {
-			throw new SaisieErroneeException("Le montant d'une facture ne peut pas être négatif.");
+			throw new IllegalArgumentException("Le montant d'une facture ne peut pas être négatif.");
 		}
 		Facture new_facture = new Facture(this, montant, false, LocalDate.now());
 		facture.add(new_facture);
@@ -93,7 +93,7 @@ public class Client
 	public Facture createFacture(int montant, boolean reglee)
 	{
 		if (montant <= 0) {
-			System.err.println("Le montant d'une facture ne peut pas être négatif.");
+			throw new IllegalArgumentException("Le montant d'une facture ne peut pas être négatif.");
 		}
 		Facture new_facture = new Facture(this, montant, reglee, LocalDate.now());
 		facture.add(new_facture);
