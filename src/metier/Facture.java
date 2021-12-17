@@ -62,6 +62,7 @@ public class Facture
 	
 	public void delete()
 	{
+		nom.facture.remove(this);
 	}
 	
 	/**
