@@ -89,7 +89,7 @@ public class Client
 	public Facture createFacture(int montant, boolean reglee)
 	{
 		if (montant <= 0) {
-			System.out.println("Le montant d'une facture ne peut pas être négatif.");
+			System.err.println("Le montant d'une facture ne peut pas être négatif.");
 			return null;
 		}
 		Facture new_facture = new Facture(this, montant, reglee, LocalDate.now());
