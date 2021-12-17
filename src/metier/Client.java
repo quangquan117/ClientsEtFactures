@@ -64,7 +64,10 @@ public class Client
 
 	public List<Facture> getFactures()
 	{
-		return this.facture;
+		List<Facture> new_facture = new ArrayList<Facture>();
+		for (int i = 0; i < facture.size(); i++)
+			new_facture.add(facture.get(i));
+		return new_facture;
 	}
 	
 	/**
@@ -120,7 +123,10 @@ public class Client
 	 */
 	public static List<Client> tous()
 	{
-		return clients;
+		List<Client> new_clients = new ArrayList<Client>();
+		for (int i = 0; i < clients.size(); i++)
+			new_clients.add(clients.get(i));
+		return new_clients;
 	}
 	
 	/**
