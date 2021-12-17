@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Client
 {
+	private static List<Client> clients;
 	private String nom;
 	private List<Facture> facture = new ArrayList<Facture>();
 	/** 
@@ -14,8 +15,9 @@ public class Client
 	 */
 	
 	public Client(String nom)
-	{		
+	{
 		this.nom = nom;
+		clients.add(this);
 	}
 
 	/**
@@ -62,7 +64,7 @@ public class Client
 
 	public List<Facture> getFactures()
 	{
-		return facture;
+		return this.facture;
 	}
 	
 	/**
@@ -118,7 +120,7 @@ public class Client
 	 */
 	public static List<Client> tous()
 	{
-		return null;
+		return clients;
 	}
 	
 	/**
@@ -127,5 +129,6 @@ public class Client
 	
 	public void delete()
 	{
+		clients.remove(this);
 	}
 }
