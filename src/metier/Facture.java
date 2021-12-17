@@ -1,5 +1,6 @@
 package metier;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Facture
@@ -70,7 +71,7 @@ public class Facture
 	
 	public Facture copie()
 	{
-		Facture new_facture = new Facture(this.nom, this.montant, this.reglee, LocalDate.now());
+		Facture new_facture = new Facture(this.nom, this.montant, this.reglee, this.Date);
 		return new_facture;
 	}
 }
