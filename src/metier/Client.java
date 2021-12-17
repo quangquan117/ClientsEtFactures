@@ -1,17 +1,21 @@
 package metier;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Client
 {
+	private String nom;
+	private List<Facture> facture = new ArrayList<Facture>();
 	/** 
 	 * Crée un client.
 	 * @param nom le nom du client. 
 	 */
 	
 	public Client(String nom)
-	{
+	{		
+		this.nom = nom;
 	}
 
 	/**
@@ -21,7 +25,7 @@ public class Client
 	
 	public String getNom()
 	{
-		return null;
+		return nom;
 	}
 	
 	/**
@@ -31,6 +35,7 @@ public class Client
 	
 	public void setNom(String nom)
 	{
+		this.nom = nom;
 	}
 	
 	/**
@@ -41,7 +46,9 @@ public class Client
 	
 	public Facture createFacture(int montant)
 	{
-		return null;
+		Facture new_facture = new Facture(this, montant, false, LocalDate.now());
+		facture.add(new_facture);
+		return new_facture;
 	}
 	
 	/**
@@ -51,7 +58,7 @@ public class Client
 
 	public List<Facture> getFactures()
 	{
-		return null;
+		return facture;
 	}
 	
 	/**
@@ -61,7 +68,11 @@ public class Client
 	
 	public int sommeMontants()
 	{
-		return 0;
+		int montant = 0;
+	
+		for (int i = 0; i < facture.size(); i++)
+			montant += facture.get(i).getMontant();
+		return montant;
 	}
 
 	/**
@@ -73,7 +84,9 @@ public class Client
 	
 	public Facture createFacture(int montant, boolean reglee)
 	{
-		return null;
+		Facture new_facture = new Facture(this, montant, reglee, LocalDate.now());
+		facture.add(new_facture);
+		return new_facture;
 	}	
 	
 	/**
@@ -83,7 +96,11 @@ public class Client
 
 	public List<Facture> facturesReglees()
 	{
-		return null;
+		List<Facture> new_facture = new ArrayList<Facture>();
+		for (int i = 0; i < facture.size(); i++)
+			if (facture.get(i).estReglee())	
+				new_facture.add(facture.get(i));
+		return new_facture;
 	}
 	
 
